@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بيت الأناقة | أثاث وديكور منزلي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --walnut:#3E2A1E;
+    --clay:#A8673D;
+    --sand:#EFE7DA;
+    --sage:#6B7A5E;
+    --paper:#FBF8F3;
+    --ink:#2A2119;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid rgba(62,42,30,0.12);
+  }
+  .nav{
+    max-width:1180px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;
+  }
+  .brand{
+    font-family:'Aref Ruqaa',serif;
+    font-size:1.7rem;
+    color:var(--walnut);
+  }
+  .nav-links{display:flex;gap:34px;font-size:0.98rem;font-weight:500;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:'';position:absolute;bottom:-2px;right:0;width:0;height:2px;
+    background:var(--clay);transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .menu-btn{display:none;background:none;border:none;font-size:1.6rem;color:var(--walnut);cursor:pointer;}
+
+  .hero{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;
+    align-items:center;padding:70px 28px 90px;
+  }
+  .hero-text h1{
+    font-size:3rem;line-height:1.25;color:var(--walnut);
+    margin-bottom:22px;font-weight:900;
+  }
+  .hero-text .accent{color:var(--clay);}
+  .hero-text p{
+    font-size:1.12rem;color:#5b4d40;max-width:46ch;margin-bottom:34px;
+  }
+  .btn{
+    display:inline-block;background:var(--walnut);color:var(--paper);
+    padding:15px 34px;border-radius:2px;font-weight:700;font-size:1rem;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn:hover{background:var(--clay);transform:translateY(-2px);}
+  .btn-outline{
+    display:inline-block;border:1.5px solid var(--walnut);color:var(--walnut);
+    padding:13px 32px;border-radius:2px;font-weight:700;margin-inline-start:14px;
+  }
+  .hero-visual{position:relative;}
+  .hero-visual img{
+    border-radius:4px;
+    box-shadow:0 30px 60px -20px rgba(62,42,30,0.35);
+  }
+  .hero-visual .tag{
+    position:absolute;bottom:-24px;left:-24px;
+    background:var(--sage);color:var(--paper);
+    padding:16px 22px;border-radius:4px;
+    font-weight:700;font-size:0.95rem;
+    box-shadow:0 12px 30px -10px rgba(107,122,94,0.5);
+  }
+
+  section{padding:80px 28px;}
+  .section-inner{max-width:1180px;margin:0 auto;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:2rem;color:var(--walnut);margin-bottom:14px;font-weight:900;}
+  .section-head p{color:#665748;font-size:1.05rem;}
+
+  .filters{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap;}
+  .filter-btn{
+    background:transparent;border:1.4px solid rgba(62,42,30,0.25);
+    color:var(--walnut);padding:9px 22px;border-radius:20px;
+    font-family:inherit;font-weight:700;font-size:0.92rem;cursor:pointer;
+    transition:all .2s ease;
+  }
+  .filter-btn.active,.filter-btn:hover{background:var(--walnut);color:var(--paper);border-color:var(--walnut);}
+
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .card{
+    background:#fff;border-radius:4px;overflow:hidden;
+    box-shadow:0 8px 24px -14px rgba(62,42,30,0.25);
+    transition:transform .25s ease;
+  }
+  .card:hover{transform:translateY(-6px);}
+  .card img{height:220px;object-fit:cover;width:100%;}
+  .card-body{padding:20px;}
+  .card-body h3{font-size:1.1rem;color:var(--walnut);margin-bottom:6px;}
+  .card-body span{color:var(--clay);font-weight:700;}
+
+  .strip{background:var(--walnut);color:var(--paper);}
+  .strip .section-inner{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:36px;text-align:center;
+  }
+  .strip h3{font-size:2.4rem;font-weight:900;color:var(--sand);}
+  .strip p{opacity:0.75;margin-top:6px;}
+
+  .gallery{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;gap:14px;
+  }
+  .gallery img{width:100%;height:100%;object-fit:cover;border-radius:3px;}
+  .gallery a:nth-child(1){grid-column:span 2;grid-row:span 2;}
+  .gallery a:nth-child(4){grid-column:span 2;}
+
+  .contact{background:var(--sand);}
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .contact-wrap h2{font-size:2rem;color:var(--walnut);margin-bottom:16px;}
+  .contact-wrap p{color:#5b4d40;margin-bottom:26px;}
+  .info-row{display:flex;gap:14px;margin-bottom:18px;font-weight:500;}
+  form{display:flex;flex-direction:column;gap:14px;}
+  input,textarea{
+    padding:14px 16px;border:1.4px solid rgba(62,42,30,0.2);border-radius:3px;
+    font-family:inherit;font-size:0.98rem;background:var(--paper);
+  }
+  textarea{min-height:120px;resize:vertical;}
+
+  footer{
+    text-align:center;padding:30px;color:#8a7c6d;font-size:0.9rem;
+    border-top:1px solid rgba(62,42,30,0.1);
+  }
+
+  @media(max-width:880px){
+    .nav-links{position:fixed;inset:64px 0 0 0;background:var(--paper);flex-direction:column;
+      padding:30px;gap:20px;transform:translateY(-120%);transition:transform .3s ease;}
+    .nav-links.open{transform:translateY(0);}
+    .menu-btn{display:block;}
+    .hero{grid-template-columns:1fr;padding-top:40px;}
+    .hero-visual{order:-1;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .strip .section-inner{grid-template-columns:1fr;gap:22px;}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:110px;}
+    .contact-wrap{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">بيت الأناقة</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#products">المنتجات</a>
+      <a href="#gallery">أعمالنا</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>أثاث يُصمَّم <span class="accent">ليُعاش معه</span>، مش بس ليتفرج عليه</h1>
+    <p>من التصميم للتفصيل، بنحول أي ركن في بيتك لمساحة دافئة وأنيقة تعكس ذوقك. خامات طبيعية، تنفيذ يدوي، وتفاصيل بتتكلم من نفسها.</p>
+    <a href="#products" class="btn">شوف المنتجات</a>
+    <a href="#contact" class="btn-outline">احجز استشارة</a>
+  </div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop" alt="غرفة معيشة بتصميم دافئ">
+    <div class="tag">+ 400 قطعة اتفصلت بإيدينا</div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>تصفح حسب النوع</h2>
+      <p>كل قطعة بتتصنع على مقاس المساحة والذوق، مش أحجام جاهزة بس.</p>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-f="all">الكل</button>
+      <button class="filter-btn" data-f="living">صالونات</button>
+      <button class="filter-btn" data-f="bed">غرف نوم</button>
+      <button class="filter-btn" data-f="kitchen">مطابخ</button>
+    </div>
+    <div class="grid" id="productGrid">
+      <div class="card" data-cat="living">
+        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=700&auto=format&fit=crop" alt="صالون">
+        <div class="card-body"><h3>صالون "نور"</h3><span>يبدأ من 18,500 ج.م</span></div>
+      </div>
+      <div class="card" data-cat="bed">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=700&auto=format&fit=crop" alt="غرفة نوم">
+        <div class="card-body"><h3>غرفة نوم "دفء"</h3><span>يبدأ من 24,000 ج.م</span></div>
+      </div>
+      <div class="card" data-cat="kitchen">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=700&auto=format&fit=crop" alt="مطبخ">
+        <div class="card-body"><h3>مطبخ "أثارة"</h3><span>تسعير حسب المساحة</span></div>
+      </div>
+      <div class="card" data-cat="living">
+        <img src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?q=80&w=700&auto=format&fit=crop" alt="ركن قراءة">
+        <div class="card-body"><h3>ركن قراءة "سكون"</h3><span>يبدأ من 7,200 ج.م</span></div>
+      </div>
+      <div class="card" data-cat="bed">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=700&auto=format&fit=crop" alt="خزانة">
+        <div class="card-body"><h3>دولاب "أمان"</h3><span>يبدأ من 15,900 ج.م</span></div>
+      </div>
+      <div class="card" data-cat="kitchen">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=700&auto=format&fit=crop" alt="طاولة سفرة">
+        <div class="card-body"><h3>طاولة سفرة "لمة"</h3><span>يبدأ من 9,800 ج.م</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="section-inner">
+    <div><h3>+9</h3><p>سنين خبرة</p></div>
+    <div><h3>400+</h3><p>مشروع منزلي مكتمل</p></div>
+    <div><h3>98%</h3><p>عملاء بيرجعوا تاني</p></div>
+  </div>
+</div>
+
+<section id="gallery">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>لمحة من شغلنا</h2>
+      <p>مساحات حقيقية نفذناها لعملاء في القاهرة والجيزة.</p>
+    </div>
+    <div class="gallery">
+      <a href="#"><img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?q=80&w=900&auto=format&fit=crop" alt="غرفة معيشة"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=500&auto=format&fit=crop" alt="طاولة"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=500&auto=format&fit=crop" alt="كرسي"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=900&auto=format&fit=crop" alt="غرفة نوم"></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-inner contact-wrap">
+    <div>
+      <h2>عايز تجهز مساحتك؟</h2>
+      <p>احجز استشارة مجانية، وهنبعتلك مصمم يزور المكان أو يتكلم معاك أونلاين حسب الأنسب ليك.</p>
+      <div class="info-row">📍 التجمع الخامس، القاهرة الجديدة</div>
+      <div class="info-row">📞 01000000000</div>
+      <div class="info-row">✉️ hello@baytelanaka.com</div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('تم استلام طلبك، هنتواصل معاك قريب');">
+      <input type="text" placeholder="الاسم بالكامل" required>
+      <input type="tel" placeholder="رقم الموبايل" required>
+      <textarea placeholder="احكيلنا عن المساحة اللي عايز تجهزها"></textarea>
+      <button type="submit" class="btn">ابعت الطلب</button>
+    </form>
+  </div>
+</section>
+
+<footer>© 2026 بيت الأناقة — جميع الحقوق محفوظة</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('#productGrid .card');
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.f;
+      cards.forEach(c=>{
+        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
